@@ -1,7 +1,8 @@
-import java.util.Random;
+import java.util.*;
 
 public class Exemplos3 {
 	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
 		Random gera = new Random();
 		int n = gera.nextInt(10) + 1;
 		int tent;
@@ -9,7 +10,7 @@ public class Exemplos3 {
 		while(tent <= 3 ) {
 			int num;
 			System.out.print("\n Tente adivinhar o número: ");
-			num = gera.nextInt();
+			num = input.nextInt();
 			if(n == num) {
 				System.out.println("Ganhou");
 				break;
