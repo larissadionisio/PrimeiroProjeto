@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class Exemplos3 {
@@ -7,7 +8,7 @@ public class Exemplos3 {
 		int n = gera.nextInt(10) + 1;
 		int tent;
 		tent = 0;
-		while(tent <= 3 ) {
+		while(tent < 3 ) {
 			int num;
 			System.out.print("\n Tente adivinhar o número: ");
 			num = input.nextInt();
@@ -16,6 +17,7 @@ public class Exemplos3 {
 				break;
 			} else {
 				System.out.print("Perdeu");
+				tent++;
 			}
 			
 		}
