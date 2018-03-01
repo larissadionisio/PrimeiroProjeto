@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JogoAdivinha</string>
+    <string name="lblInforme">Digite um número: </string>
+    <string name="lblConfirmar"> Confirmar </string>
+</resources>
