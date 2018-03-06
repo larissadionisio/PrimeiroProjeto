@@ -2,4 +2,7 @@
     <string name="app_name">JogoAdivinha</string>
     <string name="lblInforme">Digite um número: </string>
     <string name="lblConfirmar"> Confirmar </string>
+    <string name="lblAcertou"> Acertou </string>
+    <string name="lblErrou"> Errou </string>
+    <string name="lblFim"> Você errou 3 vezes. Não pode mais jogar! </string>
 </resources>
