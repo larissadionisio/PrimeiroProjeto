@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NovoJogoAdivinhacao</string>
+    <string name="lblAcertou"> Você acertou! Fim de Jogo </string>
+    <string name="lblErrou"> Errou </string>
+</resources>
