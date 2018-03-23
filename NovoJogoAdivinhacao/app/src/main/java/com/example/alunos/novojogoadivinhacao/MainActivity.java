@@ -29,17 +29,19 @@ public class MainActivity extends AppCompatActivity {
 
         TextView acertou = (TextView) findViewById(R.id.acertou);
         TextView errou  = (TextView) findViewById(R.id.errou);
+        TextView resul  = (TextView) findViewById(R.id.resul);
 
-        if( numero == nume) {
-            acertou.setText(getResources(). getString(R.string.lblAcertou));
-            userInput.setText("");
-            tent = 0;
-        }
-        else {
-            acertou.setText(getResources(). getString(R.string.lblErrou));
-            userInput.setText("");
-            tent++;
-        }
+
+        while (numero != nume) {
+            if (numero > nume) {
+                 acertou.setText("O número é maior!");
+            }else if {
+                acertou.setText("O número é menor!");
+            }
+         }
+
+         resul.setText("Acertou! Fim de jogo");
+         tent=0;
 
     }
 }
