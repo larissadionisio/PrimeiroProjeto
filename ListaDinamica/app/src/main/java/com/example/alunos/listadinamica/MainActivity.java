@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.alunos.listadinamica.model.Pessoa;
 
@@ -27,16 +28,32 @@ public class MainActivity extends AppCompatActivity {
 
         EditText nome =  findViewById(R.id.nome);
         String oNome = nome.getText().toString();
+        if(oNome.matches("")) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "É preciso digitar as informações...", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         EditText telefone = findViewById(R.id.telefone);
         String oTelefone = telefone.getText().toString();
+        if(oTelefone.matches("")) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "É preciso digitar as informações...", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        lista.add(new Pessoa(oNome, oTelefone,
+                R.mipmap.ic_launcher_round));
     }
 
     public void mostrarLista(View v) {
-        lista.add(new Pessoa("nome", "telefone", R.mipmap.ic_launcher_round));
         Intent it = new Intent(this, mostrarListaDinamica.class);
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("contatos", lista);
         it.putExtras(bundle);
         startActivity(it);
+
+
+
     }
 }
