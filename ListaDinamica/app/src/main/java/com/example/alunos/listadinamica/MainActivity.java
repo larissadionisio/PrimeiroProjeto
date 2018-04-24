@@ -1,6 +1,8 @@
 package com.example.alunos.listadinamica;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void salvar(View v) {
-
+        SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
         EditText nome =  findViewById(R.id.nome);
         String oNome = nome.getText().toString();
         if(oNome.matches("")) {
@@ -42,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             return;
         }
+        SharedPreferences.Editor editor = arquivo.edit();
+                editor.putString("nome",oNome);
+                editor.putString("telefone", oTelefone);
+                editor.commit();
         lista.add(new Pessoa(oNome, oTelefone,
                 R.mipmap.ic_launcher_round));
     }
