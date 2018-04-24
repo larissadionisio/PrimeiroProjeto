@@ -9,12 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.net.Uri;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+
 
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
@@ -57,7 +60,12 @@ public class MainActivity extends AppCompatActivity
             //usando uma notificacao (objeto Toast)
             if(result.getContents() == null) {
                 Toast.makeText(this, "Result Not Found", Toast.LENGTH_LONG).show();
-            }else{
+            }
+            else if (result.getContents().startsWith( "http://") == true) {
+
+                Intent intencao = new Intent(Intent.ACTION_VIEW, Uri.parse(result.getContents().toLowerCase()));
+                startActivity(intencao);
+                } else{
                 //Em caso positivo, vamos tratar o resultado
                 try{
                     //Aqui, a string lida no QRCode e convertida em um objeto JSON
@@ -81,24 +89,6 @@ public class MainActivity extends AppCompatActivity
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-    public void abrirUrl(View v) {
-        EditText url = (EditText) findViewById(R.id.txtUrl);
-        String aUrl = url.getText().toString();
-        if (aUrl.matches("")) {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Digite um endereço web...", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        } else if (aUrl.indexOf("http://")!=0){
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "É necessário utilizar o http://", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
 
-        Intent intencao = new Intent(Intent.ACTION_VIEW, Uri.parse(aUrl.toLowerCase()));
-        startActivity(intencao);
-
-    }
 
 }
