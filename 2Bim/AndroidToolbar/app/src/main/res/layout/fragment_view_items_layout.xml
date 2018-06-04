@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="345dp" />
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="368dp"
+        android:layout_height="551dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>

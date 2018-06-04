@@ -13,10 +13,5 @@
             android:icon="@android:drawable/ic_menu_view"
             android:title="@string/action_view_items"
             app:showAsAction="ifRoom" />
-        <item
-            android:id="@+id/settings"
-            android:icon="@android:drawable/ic_menu_preferences"
-            android:title="@string/action_settings"
-            app:showAsAction="ifRoom" />
     </group>
 </menu>
