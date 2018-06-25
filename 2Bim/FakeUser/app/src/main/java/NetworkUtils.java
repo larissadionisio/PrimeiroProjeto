@@ -1,0 +1,56 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+
+public class NetworkUtils {
+    //Responsavel por carregar o objeto JSON
+    public static String getJSONFromAPI(String url) {
+        String retorno = "";
+        try {
+            URL apiEnd = new URL(url);
+            int CodigoResposta;
+            HttpURLConnection conexao;
+            InputStream is;
+
+            conexao = (HttpURLConnection) apiEnd.openConnection();
+            conexao.setRequestMethod("GET");
+            conexao.setReadTimeout(15000);
+            conexao.setConnectTimeout(15000);
+
+            codigoResposta = conexao.getResponseCode();
+            if(codigoResposta < HttpURLConnection.HTTP_BAD_REQUEST){
+                is = conexao.getInputStream();
+            } else {
+                is = conexao.getErrorStream();
+            }
+
+            retorno = converterInputToString(is);
+            is.close();
+            conexao.disconnect();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return retorno;
+    }
+    private static String converterInputStreamToString(InputStream is) {
+        StringBuffer buffer = new StringBuffer();
+        try{
+            BufferedReader br;
+            String linha;
+
+            br = new BufferedReader(new InputStreamReader(is));
+            while((linha = br.readLine())!=null){
+                buffer.append(linha);
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return buffer.toString();
+    }
+}
