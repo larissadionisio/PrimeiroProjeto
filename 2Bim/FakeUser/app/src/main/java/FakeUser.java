@@ -1,3 +1,5 @@
+import android.graphics.Bitmap;
+
 public class FakeUser {
     private String nome;
     private String sobrenome;
@@ -90,6 +92,8 @@ public class FakeUser {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    
+
 
 }
 

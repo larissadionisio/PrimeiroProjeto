@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 
@@ -10,7 +11,7 @@ public class NetworkUtils {
         String retorno = "";
         try {
             URL apiEnd = new URL(url);
-            int CodigoResposta;
+            int codigoResposta;
             HttpURLConnection conexao;
             InputStream is;
 
@@ -26,7 +27,7 @@ public class NetworkUtils {
                 is = conexao.getErrorStream();
             }
 
-            retorno = converterInputToString(is);
+            retorno = converterInputStreamToString(is);
             is.close();
             conexao.disconnect();
         } catch (MalformedURLException e) {

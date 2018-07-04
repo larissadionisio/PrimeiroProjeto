@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Utils {
     public FakeUser getInformacao(String end){
