@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AndroidToolbar</string>
-    <string name="action_view_items">Visualizar Lista</string>
-    <string name="action_new">Adicionar Pessoa</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_view_items">Visualizar</string>
+    <string name="action_new">Adicionar</string>
     <string name="logo_desc">App Logo</string>
 </resources>
